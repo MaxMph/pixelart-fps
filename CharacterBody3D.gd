@@ -7,6 +7,7 @@ var basesense = 0.003
 var SPEED
 const basespeed = 6
 var extraspeed = 0
+var extravel = Vector3.ZERO
 
 var FRIC = 30
 var ACC = 20
@@ -79,7 +80,7 @@ func _physics_process(delta):
 	if SPEED > basespeed and is_on_floor():
 		extraspeed = move_toward(extraspeed, 0, 0.05)
 	
-	
-
+	if Input.is_action_pressed("shift"):
+		velocity
 
 	move_and_slide()

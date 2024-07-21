@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdp0jw1lsgnbj"]
+[gd_scene load_steps=7 format=3 uid="uid://cdp0jw1lsgnbj"]
 
+[ext_resource type="Texture2D" uid="uid://1q5gq1yuqgpq" path="res://cobblestone 1.png" id="1_50s0p"]
 [ext_resource type="PackedScene" uid="uid://dg1keiig7fpso" path="res://player.tscn" id="1_eeid0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odv1t"]
@@ -16,6 +17,11 @@ background_mode = 2
 sky = SubResource("Sky_dv300")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjqdc"]
+albedo_texture = ExtResource("1_50s0p")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
 
 [node name="world" type="Node3D"]
 
@@ -34,6 +40,7 @@ transform = Transform3D(3.26672, 0, 0, 0, 3.26672, 0, 0, 0, 3.26672, 0, 0, 0)
 transform = Transform3D(4.68649, 0, 0, 0, 0.163034, 0, 0, 0, 4.68649, -1.10869, -0.352173, 0)
 use_collision = true
 size = Vector3(1.47314, 0.232666, 1)
+material = SubResource("StandardMaterial3D_tjqdc")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="ground"]
 transform = Transform3D(4.68649, 0, 0, 0, 0.163034, 0, 0, 0, 4.68649, 10.7181, -0.352173, 0)

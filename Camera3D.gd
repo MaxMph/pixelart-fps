@@ -17,14 +17,17 @@ func _process(delta):
 	if Input.is_action_just_released("rightclick"):
 		#ani.play("scope out")
 		
-		$"../../../CanvasLayer/gun".visible = true
-		$"../../../CanvasLayer/scope".visible = false
+		$"../../CanvasLayer/gun".visible = true
+		$"../../CanvasLayer/scope".visible = false
 		fov = 75
 		scoped = false
 	
-	if abs(player.velocity) != Vector3.ZERO and player.is_on_floor:
+	if player.velocity != Vector3.ZERO and player.is_on_floor:
 		ap.play("walk")
-
+		print(player.velocity)
+	
+	#if player.velocity == Vector3.ZERO and player.is_on_floor:
+	#	ap.play("idle")
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
@@ -52,7 +55,7 @@ func Get_Camera_Collision():
 
 func _on_ani_animation_finished():
 	ani.stop()
-	$"../../../CanvasLayer/gun".visible = false
-	$"../../../CanvasLayer/scope".visible = true
+	$"../../CanvasLayer/gun".visible = false
+	$"../../CanvasLayer/scope".visible = true
 	scoped = true
 	fov = 20
