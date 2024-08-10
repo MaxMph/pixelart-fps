@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dg1keiig7fpso"]
+[gd_scene load_steps=22 format=3 uid="uid://dg1keiig7fpso"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_ek5ps"]
 [ext_resource type="Texture2D" uid="uid://byqrbxoh7xhma" path="res://hands with rifle.png" id="2_ben2r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqkpi1ruijgnp" path="res://SCOPED IN SNIPER 1.png" id="3_hxm7n"]
 [ext_resource type="Texture2D" uid="uid://dvxx2h0t318p3" path="res://riflesprite ads ani.png" id="4_q3b84"]
 [ext_resource type="AudioStream" uid="uid://cvavh5myeq2uc" path="res://soundefects/9mm-pistol-shoot-short-reverb-7152.mp3" id="6_iu0fu"]
+[ext_resource type="AudioStream" uid="uid://dkp7ss8tk0dv7" path="res://soundefects/double-door-lock-101210.mp3" id="7_px8ul"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l0wru"]
 
@@ -37,6 +38,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8hhcx"]
@@ -71,10 +84,27 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_iwst7"]
+resource_name = "recoil"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.383972, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xd0bd"]
 _data = {
 "RESET": SubResource("Animation_rfy7o"),
 "idle": SubResource("Animation_8hhcx"),
+"recoil": SubResource("Animation_iwst7"),
 "walk": SubResource("Animation_k0lup")
 }
 
@@ -204,5 +234,10 @@ offset = Vector2(0.5, -0.5)
 [node name="gunshot" type="AudioStreamPlayer" parent="soundefects"]
 stream = ExtResource("6_iu0fu")
 volume_db = -6.559
+pitch_scale = 0.9
 
+[node name="loadshot" type="AudioStreamPlayer" parent="soundefects"]
+stream = ExtResource("7_px8ul")
+
+[connection signal="animation_finished" from="head/Camera3D/AnimationPlayer" to="head/Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/gun/ani" to="head/Camera3D" method="_on_ani_animation_finished"]

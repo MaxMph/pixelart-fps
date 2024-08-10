@@ -10,6 +10,8 @@ var rayrange = 1000
 
 #soundefects
 @onready var gunshot = $"../../soundefects/gunshot"
+@onready var loadshot = $"../../soundefects/loadshot"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -38,9 +40,12 @@ func _process(delta):
 	#	ap.play("idle")
 
 func _input(event):
-	if event.is_action_pressed("shoot") and canshoot:
+	if event.is_action_pressed("shoot") and canshoot == true:
 		Get_Camera_Collision()
 		gunshot.play()
+		canshoot = false
+		ap.play("recoil")
+
 
 
 
@@ -72,3 +77,13 @@ func _on_ani_animation_finished():
 		fov = 20
 	else:
 		pass
+
+
+
+
+func _on_animation_player_animation_finished(anim_name):
+	print(anim_name)
+	if anim_name == "recoil":
+		loadshot.play()
+		canshoot = true
+	
