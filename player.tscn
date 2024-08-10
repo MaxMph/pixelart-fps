@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dg1keiig7fpso"]
+[gd_scene load_steps=20 format=3 uid="uid://dg1keiig7fpso"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_ek5ps"]
 [ext_resource type="Texture2D" uid="uid://byqrbxoh7xhma" path="res://hands with rifle.png" id="2_ben2r"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_cjxy6"]
 [ext_resource type="Texture2D" uid="uid://cqkpi1ruijgnp" path="res://SCOPED IN SNIPER 1.png" id="3_hxm7n"]
 [ext_resource type="Texture2D" uid="uid://dvxx2h0t318p3" path="res://riflesprite ads ani.png" id="4_q3b84"]
+[ext_resource type="AudioStream" uid="uid://cvavh5myeq2uc" path="res://soundefects/9mm-pistol-shoot-short-reverb-7152.mp3" id="6_iu0fu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l0wru"]
 
@@ -25,6 +26,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0.517041, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CanvasLayer:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8hhcx"]
 resource_name = "idle"
@@ -44,6 +57,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.52, 0), Vector3(0, 0.62, 0), Vector3(0, 0.52, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CanvasLayer:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xd0bd"]
@@ -158,7 +183,7 @@ texture_filter = 1
 position = Vector2(341.5, 155)
 scale = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_vyu7t")
-animation = &"scope in"
+animation = &"idle"
 
 [node name="scope" type="Control" parent="CanvasLayer"]
 visible = false
@@ -173,5 +198,11 @@ position = Vector2(575.5, 324)
 scale = Vector2(15, 15)
 texture = ExtResource("3_hxm7n")
 offset = Vector2(0.5, -0.5)
+
+[node name="soundefects" type="Node" parent="."]
+
+[node name="gunshot" type="AudioStreamPlayer" parent="soundefects"]
+stream = ExtResource("6_iu0fu")
+volume_db = -6.559
 
 [connection signal="animation_finished" from="CanvasLayer/gun/ani" to="head/Camera3D" method="_on_ani_animation_finished"]
