@@ -30,7 +30,7 @@ func _process(delta):
 		fov = 75
 		scoped = false
 	
-	if player.velocity != Vector3.ZERO and player.is_on_floor:
+	if player.velocity != Vector3.ZERO and player.is_on_floor and ap.get_animation() != :
 		ap.play("walk")
 		
 		
@@ -85,5 +85,8 @@ func _on_animation_player_animation_finished(anim_name):
 	print(anim_name)
 	if anim_name == "recoil":
 		loadshot.play()
-		canshoot = true
-	
+		
+
+
+func _on_loadshot_finished():
+	canshoot = true
