@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://kyajiea1unjo"]
+[gd_scene load_steps=13 format=3 uid="uid://kyajiea1unjo"]
 
 [ext_resource type="PackedScene" uid="uid://bb46j1818gk7b" path="res://terrain_1(reimport).tscn" id="2_o2jw2"]
 [ext_resource type="PackedScene" uid="uid://dg1keiig7fpso" path="res://player.tscn" id="3_6ajwf"]
+[ext_resource type="Texture2D" uid="uid://btsd5cql2gsvk" path="res://grass anim (try 1).png" id="12_0yt1a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jijuo"]
 sky_top_color = Color(0, 0.373046, 0.394233, 1)
@@ -18,6 +19,49 @@ sky = SubResource("Sky_hdror")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f0ce"]
+atlas = ExtResource("12_0yt1a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceacm"]
+atlas = ExtResource("12_0yt1a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlrnv"]
+atlas = ExtResource("12_0yt1a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4guus"]
+atlas = ExtResource("12_0yt1a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdy3w"]
+atlas = ExtResource("12_0yt1a")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a10ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f0ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceacm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlrnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4guus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdy3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="levels" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -29,6 +73,14 @@ shadow_enabled = true
 environment = SubResource("Environment_urxss")
 
 [node name="player" parent="." instance=ExtResource("3_6ajwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375.765, -115.745, -500.457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375.765, -121.071, -500.457)
 
 [node name="terrain_1(reimport)" parent="." instance=ExtResource("2_o2jw2")]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.39267)
+offset = Vector2(0, 15)
+pixel_size = 0.05
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_a10ey")
+autoplay = "default"
