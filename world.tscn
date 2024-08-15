@@ -34,7 +34,7 @@ albedo_texture = ExtResource("1_50s0p")
 uv1_scale = Vector3(4, 4, 4)
 uv1_triplanar = true
 
-[sub_resource type="Resource" id="Resource_8a3bp"]
+[sub_resource type="Resource" id="Resource_7sxik"]
 script = ExtResource("6_qclxb")
 amount = 75
 enabled = true
@@ -43,7 +43,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_awnlo"]
+[sub_resource type="Resource" id="Resource_o66xf"]
 script = ExtResource("7_pgfrs")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(15, 90, 15)
@@ -54,7 +54,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_x3f7m"]
+[sub_resource type="Resource" id="Resource_hq2ml"]
 script = ExtResource("8_6ahru")
 iterations = 3
 offset_step = 0.2
@@ -66,7 +66,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_uhq7v"]
+[sub_resource type="Resource" id="Resource_nj6ku"]
 script = ExtResource("9_bhmwc")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -82,9 +82,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ky5h3"]
+[sub_resource type="Resource" id="Resource_4q3fd"]
 script = ExtResource("5_5thkh")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8a3bp"), SubResource("Resource_awnlo"), SubResource("Resource_x3f7m"), SubResource("Resource_uhq7v")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7sxik"), SubResource("Resource_o66xf"), SubResource("Resource_hq2ml"), SubResource("Resource_nj6ku")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("12_e2en6")
@@ -282,7 +282,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75331, -0.953514, 1.3334)
 script = ExtResource("4_c16hk")
 render_mode = 1
-modifier_stack = SubResource("Resource_ky5h3")
+keep_static_colliders = true
+modifier_stack = SubResource("Resource_4q3fd")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

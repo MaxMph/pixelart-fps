@@ -3,14 +3,14 @@ var scoped = false
 var canshoot = true
 var current_rot
 var rayrange = 1000
-@onready var ani = $"../../CanvasLayer/gun/ani"
+@onready var ani = $"../../../CanvasLayer/gun/ani"
 @onready var ap = $AnimationPlayer
 
-@onready var player = $"../.."
+@onready var player = $"../../.."
 
 #soundefects
-@onready var gunshot = $"../../soundefects/gunshot"
-@onready var loadshot = $"../../soundefects/loadshot"
+@onready var gunshot = $"../../../soundefects/gunshot"
+@onready var loadshot = $"../../../soundefects/loadshot"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +25,8 @@ func _process(delta):
 	if Input.is_action_just_released("rightclick"):
 		ani.play("scope out")
 		
-		$"../../CanvasLayer/gun".visible = true
-		$"../../CanvasLayer/scope".visible = false
+		$"../../../CanvasLayer/gun".visible = true
+		$"../../../CanvasLayer/scope".visible = false
 		fov = 75
 		scoped = false
 	
@@ -69,8 +69,8 @@ func _physics_process(delta):
 func _on_ani_animation_finished():
 	if Input.is_action_pressed("rightclick"):
 		ani.stop()
-		$"../../CanvasLayer/gun".visible = false
-		$"../../CanvasLayer/scope".visible = true
+		$"../../../CanvasLayer/gun".visible = false
+		$"../../../CanvasLayer/scope".visible = true
 		scoped = true
 		fov = 20
 	else:

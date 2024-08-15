@@ -20,7 +20,8 @@ var airFRIC = 1
 
 
 @onready var head = $head
-@onready var camera = $head/Camera3D
+@onready var camera = $head/camholder/Camera3D
+@onready var camholder = $head/camholder
 
 @onready var anim_player = $head/AnimationPlayer
 
@@ -36,11 +37,11 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camholder.rotate_x(-event.relative.y * SENSITIVITY)
+		camholder.rotation.x = clamp(camholder.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func _process(delta):
-	if get_node("head/Camera3D").scoped == true:
+	if get_node("head/camholder/Camera3D").scoped == true:
 		SENSITIVITY = basesense / 4
 	else:
 		SENSITIVITY = basesense

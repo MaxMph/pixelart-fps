@@ -182,11 +182,13 @@ shape = SubResource("ConvexPolygonShape3D_pbiho")
 
 [node name="head" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="head"]
+[node name="camholder" type="Node3D" parent="head"]
+
+[node name="Camera3D" type="Camera3D" parent="head/camholder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517041, 0)
 script = ExtResource("2_cjxy6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/camholder/Camera3D"]
 libraries = {
 "": SubResource("AnimationLibrary_xd0bd")
 }
@@ -239,6 +241,6 @@ pitch_scale = 0.9
 [node name="loadshot" type="AudioStreamPlayer" parent="soundefects"]
 stream = ExtResource("7_px8ul")
 
-[connection signal="animation_finished" from="head/Camera3D/AnimationPlayer" to="head/Camera3D" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="CanvasLayer/gun/ani" to="head/Camera3D" method="_on_ani_animation_finished"]
-[connection signal="finished" from="soundefects/loadshot" to="head/Camera3D" method="_on_loadshot_finished"]
+[connection signal="animation_finished" from="head/camholder/Camera3D/AnimationPlayer" to="head/camholder/Camera3D" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/gun/ani" to="head/camholder/Camera3D" method="_on_ani_animation_finished"]
+[connection signal="finished" from="soundefects/loadshot" to="head/camholder/Camera3D" method="_on_loadshot_finished"]
