@@ -30,11 +30,9 @@ func _process(delta):
 		fov = 75
 		scoped = false
 	
-	if player.velocity != Vector3.ZERO and player.is_on_floor and ap.get_animation() != :
+	if player.velocity != Vector3.ZERO and player.is_on_floor and ap.is_playing() == false:
 		ap.play("walk")
 		
-		
-		print(player.velocity)
 	
 	#if player.velocity == Vector3.ZERO and player.is_on_floor:
 	#	ap.play("idle")

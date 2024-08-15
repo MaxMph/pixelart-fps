@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdp0jw1lsgnbj"]
+[gd_scene load_steps=8 format=3 uid="uid://cdp0jw1lsgnbj"]
 
 [ext_resource type="Texture2D" uid="uid://1q5gq1yuqgpq" path="res://cobblestone 1.png" id="1_50s0p"]
 [ext_resource type="PackedScene" uid="uid://dg1keiig7fpso" path="res://player.tscn" id="1_eeid0"]
+[ext_resource type="PackedScene" uid="uid://pigt1dxu8pg5" path="res://grass 1.tscn" id="3_r00ms"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odv1t"]
 sky_top_color = Color(0, 0.373046, 0.394233, 1)
@@ -164,3 +165,6 @@ size = Vector3(0.180542, 3.00047, 0.134277)
 
 [node name="Player" parent="." instance=ExtResource("1_eeid0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10847, 0)
+
+[node name="grass" parent="." instance=ExtResource("3_r00ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
