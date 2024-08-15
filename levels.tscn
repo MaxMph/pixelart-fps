@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://kyajiea1unjo"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_cj1bp"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_pp5kk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jijuo"]
+sky_top_color = Color(0, 0.373046, 0.394233, 1)
+sky_horizon_color = Color(0.560018, 0.631379, 0.618472, 1)
+ground_bottom_color = Color(0.240071, 0.15247, 0.0796567, 1)
+ground_horizon_color = Color(0.560018, 0.631379, 0.618472, 1)
+
+[sub_resource type="Sky" id="Sky_hdror"]
+sky_material = SubResource("ProceduralSkyMaterial_jijuo")
+
+[sub_resource type="Environment" id="Environment_urxss"]
+background_mode = 2
+sky = SubResource("Sky_hdror")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_eft85"]
+script = ExtResource("2_pp5kk")
+mode = 0
+textures = [[], []]
+
+[node name="levels" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.955337, 0.826199, 0.948931, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_urxss")
+
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("1_cj1bp")
+map_scale = Vector3(0.5, 0.5, 0.5)
+centered = true
+_terrain_data = null
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "LowPoly"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_eft85")
+render_layers = 1
+cast_shadow = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HTerrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HTerrain/StaticBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.961194, 0, -0.275872, 0.185737, 0.739396, 0.647144, 0.203979, -0.673271, 0.710703, 0, 41.4771, 0)

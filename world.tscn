@@ -34,7 +34,7 @@ albedo_texture = ExtResource("1_50s0p")
 uv1_scale = Vector3(4, 4, 4)
 uv1_triplanar = true
 
-[sub_resource type="Resource" id="Resource_oulhe"]
+[sub_resource type="Resource" id="Resource_8a3bp"]
 script = ExtResource("6_qclxb")
 amount = 75
 enabled = true
@@ -43,10 +43,10 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_2futb"]
+[sub_resource type="Resource" id="Resource_awnlo"]
 script = ExtResource("7_pgfrs")
 position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(20, 90, 20)
+rotation = Vector3(15, 90, 15)
 scale = Vector3(0.1, 0.1, 0.1)
 enabled = true
 override_global_seed = false
@@ -54,7 +54,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_1xrpe"]
+[sub_resource type="Resource" id="Resource_x3f7m"]
 script = ExtResource("8_6ahru")
 iterations = 3
 offset_step = 0.2
@@ -66,7 +66,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6fwku"]
+[sub_resource type="Resource" id="Resource_uhq7v"]
 script = ExtResource("9_bhmwc")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -82,9 +82,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_68t8b"]
+[sub_resource type="Resource" id="Resource_ky5h3"]
 script = ExtResource("5_5thkh")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_oulhe"), SubResource("Resource_2futb"), SubResource("Resource_1xrpe"), SubResource("Resource_6fwku")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8a3bp"), SubResource("Resource_awnlo"), SubResource("Resource_x3f7m"), SubResource("Resource_uhq7v")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("12_e2en6")
@@ -130,7 +130,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="world" type="Node3D"]
@@ -279,10 +279,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10847, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="ProtonScatter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.953514, 1.3334)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75331, -0.953514, 1.3334)
 script = ExtResource("4_c16hk")
 render_mode = 1
-modifier_stack = SubResource("Resource_68t8b")
+modifier_stack = SubResource("Resource_ky5h3")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -303,3 +303,4 @@ pixel_size = 0.05
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_km2hi")
 autoplay = "default"
+frame_progress = 0.302223
