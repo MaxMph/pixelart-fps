@@ -38,7 +38,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camholder.rotate_x(-event.relative.y * SENSITIVITY)
-		camholder.rotation.x = clamp(camholder.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camholder.rotation.x = clamp(camholder.rotation.x, deg_to_rad(-60), deg_to_rad(75))
 
 func _process(delta):
 	if get_node("head/camholder/Camera3D").scoped == true:

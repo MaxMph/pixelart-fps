@@ -177,6 +177,7 @@ animations = [{
 script = ExtResource("1_ek5ps")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_l0wru")
 surface_material_override/0 = SubResource("StandardMaterial3D_61ttb")
 
