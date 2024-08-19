@@ -1,0 +1,50 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://boxp3fdab4uff"]
+
+[ext_resource type="Texture2D" uid="uid://bkqv87xn2blci" path="res://grass-no-ani.png" id="1_hdhbp"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_847o7"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("1_hdhbp")
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8862o"]
+parameter_name = "Texture2DParameter"
+texture_filter = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_2qjt4"]
+input_name = "uv"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D Texture2DParameter : filter_nearest;
+
+
+
+void fragment() {
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(Texture2DParameter, n_out4p0);
+	float n_out2p4 = n_out2p0.a;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out2p4;
+
+
+}
+"
+graph_offset = Vector2(-140.797, 270.776)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_847o7")
+nodes/fragment/2/position = Vector2(80, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_8862o")
+nodes/fragment/3/position = Vector2(-280, 160)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_2qjt4")
+nodes/fragment/4/position = Vector2(-260, 60)
+nodes/fragment/connections = PackedInt32Array(2, 4, 0, 1, 2, 0, 0, 0, 3, 0, 2, 2, 4, 0, 2, 0)
