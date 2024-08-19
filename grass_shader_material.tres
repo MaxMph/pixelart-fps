@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://ck6ha7ewlop5"]
+
+[ext_resource type="Shader" uid="uid://boxp3fdab4uff" path="res://grass_shader.tres" id="1_h7riu"]
+[ext_resource type="Texture2D" uid="uid://bkqv87xn2blci" path="res://grass-no-ani.png" id="2_c7kxg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3pw3o"]
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7nhir"]
+noise = SubResource("FastNoiseLite_3pw3o")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h7riu")
+shader_parameter/wind = SubResource("NoiseTexture2D_7nhir")
+shader_parameter/Texture2DParameter = ExtResource("2_c7kxg")
