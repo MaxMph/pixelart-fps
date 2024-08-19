@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dj6nkm3ms1cct" path="res://terrain_new_try(scale_applied).tscn" id="12_kwdeq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jijuo"]
-sky_top_color = Color(0, 0.373046, 0.394233, 1)
-sky_horizon_color = Color(0.560018, 0.631379, 0.618472, 1)
+sky_top_color = Color(0.417232, 0.559628, 0.609574, 1)
 ground_bottom_color = Color(0.240071, 0.15247, 0.0796567, 1)
 ground_horizon_color = Color(0.560018, 0.631379, 0.618472, 1)
 
@@ -26,9 +25,15 @@ sky_material = SubResource("ProceduralSkyMaterial_jijuo")
 [sub_resource type="Environment" id="Environment_urxss"]
 background_mode = 2
 sky = SubResource("Sky_hdror")
+ambient_light_source = 2
+ambient_light_color = Color(0.701211, 0.498145, 0.357083, 1)
+ambient_light_sky_contribution = 0.44
 tonemap_mode = 2
 glow_enabled = true
 fog_light_color = Color(0.621524, 0.621524, 0.621524, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 0.76
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4f0ce"]
 atlas = ExtResource("12_0yt1a")
@@ -73,7 +78,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="Resource" id="Resource_ndeol"]
+[sub_resource type="Resource" id="Resource_4jklc"]
 script = ExtResource("5_fb25i")
 amount = 4000
 enabled = true
@@ -82,7 +87,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_gyo1v"]
+[sub_resource type="Resource" id="Resource_b71tg"]
 script = ExtResource("6_wh0l3")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -93,7 +98,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_5wmwo"]
+[sub_resource type="Resource" id="Resource_rpqgh"]
 script = ExtResource("7_mcxpy")
 iterations = 3
 offset_step = 0.1
@@ -105,7 +110,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_b7dka"]
+[sub_resource type="Resource" id="Resource_d353u"]
 script = ExtResource("8_mdeir")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -121,7 +126,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_3nsn3"]
+[sub_resource type="Resource" id="Resource_prss2"]
 script = ExtResource("9_nwq73")
 position = Vector3(0, 0.5, 0)
 rotation = Vector3(0, 0, 0)
@@ -132,9 +137,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_kwp4b"]
+[sub_resource type="Resource" id="Resource_px5c8"]
 script = ExtResource("4_yd5a7")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ndeol"), SubResource("Resource_gyo1v"), SubResource("Resource_5wmwo"), SubResource("Resource_b7dka"), SubResource("Resource_3nsn3")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_4jklc"), SubResource("Resource_b71tg"), SubResource("Resource_rpqgh"), SubResource("Resource_d353u"), SubResource("Resource_prss2")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("11_oq51h")
@@ -142,13 +147,12 @@ radius = 50.6666
 
 [node name="levels" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.955337, 0.826199, 0.948931, 1)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urxss")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.790201, 0.889382, 0.887816, 1)
 
 [node name="grass" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.39267)
@@ -158,13 +162,14 @@ sprite_frames = SubResource("SpriteFrames_a10ey")
 autoplay = "default"
 
 [node name="player" parent="." instance=ExtResource("3_6ajwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.216, -106.642, -357.169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.216, -108.55, -357.169)
 
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.874, -112.998, -393.45)
+visible = false
 script = ExtResource("3_hrc4v")
 render_mode = 1
-modifier_stack = SubResource("Resource_kwp4b")
+modifier_stack = SubResource("Resource_px5c8")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
