@@ -19,26 +19,27 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("rightclick"):
-		ani.play("scope in")
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if Input.is_action_just_pressed("rightclick"):
+			ani.play("scope in")
 
-	if Input.is_action_just_released("rightclick"):
-		ani.play("scope out")
+		if Input.is_action_just_released("rightclick"):
+			ani.play("scope out")
+			
+			$"../../../CanvasLayer/gun".visible = true
+			$"../../../CanvasLayer/scope".visible = false
+			fov = 75
+			scoped = false
 		
-		$"../../../CanvasLayer/gun".visible = true
-		$"../../../CanvasLayer/scope".visible = false
-		fov = 75
-		scoped = false
-	
-	if player.velocity != Vector3.ZERO and player.is_on_floor and ap.is_playing() == false:
-		ap.play("walk")
+		if player.velocity != Vector3.ZERO and player.is_on_floor and ap.is_playing() == false:
+			ap.play("walk")
+			
 		
-	
 	#if player.velocity == Vector3.ZERO and player.is_on_floor:
 	#	ap.play("idle")
 
 func _input(event):
-	if event.is_action_pressed("shoot") and canshoot == true:
+	if event.is_action_pressed("shoot") and canshoot == true and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		Get_Camera_Collision()
 		gunshot.play()
 		canshoot = false

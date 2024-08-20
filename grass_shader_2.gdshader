@@ -17,4 +17,6 @@ void fragment(){
 		NORMAL = -NORMAL;
 	NORMAL = vec3(0,1,0);
 	ALBEDO = texture(grass_texture, UV).rgb * 0.2;
+	METALLIC = 0.0;
+	ROUGHNESS = 1.0;
 }
