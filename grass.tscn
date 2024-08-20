@@ -7,13 +7,13 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3pw3o"]
 fractal_type = 0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7nhir"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iqbmh"]
 noise = SubResource("FastNoiseLite_3pw3o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6brpd"]
 render_priority = 0
 shader = ExtResource("1_koqb0")
-shader_parameter/wind = SubResource("NoiseTexture2D_7nhir")
+shader_parameter/wind = SubResource("NoiseTexture2D_iqbmh")
 shader_parameter/Texture2DParameter = ExtResource("2_x4xm6")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bkq4q"]
