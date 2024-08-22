@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn6db2fye4kqe"]
+
+[ext_resource type="PackedScene" uid="uid://dab1anpv7sjl6" path="res://arch/bridge.glb" id="1_jrwyv"]
+[ext_resource type="Texture2D" uid="uid://bapi1qfsn6ph0" path="res://concrete.png" id="2_oxkh1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtypl"]
+albedo_texture = ExtResource("2_oxkh1")
+uv1_scale = Vector3(50, 50, 50)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gpl6"]
+blend_mode = 3
+roughness = 0.0
+
+[node name="bridge" instance=ExtResource("1_jrwyv")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rtypl")
+
+[node name="windows" parent="." index="1"]
+transparency = 1.0
+surface_material_override/0 = SubResource("StandardMaterial3D_0gpl6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 12)
+light_energy = 4.62
+omni_range = 10.8
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -12)
+light_energy = 4.62
+omni_range = 10.8

@@ -1,0 +1,2 @@
+25 hour benchmark:
+Hi, this is (as you can most likely tell) is not (yet?) a game. for now it is simply a place for me to explore a visual concept. i am trying to blend 2D pixel art with 3d environments and lighting. since almost all of the systems i am using are completely new to me progress is going slow. as i continue to learn about different systems and features i think progress will pick up but for now the main takeaway isn't a beautiful environment but rather the skills and knowledge that i have been accumulating over the last 25 hours.  
