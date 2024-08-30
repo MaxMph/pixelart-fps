@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://dg1keiig7fpso"]
+[gd_scene load_steps=41 format=3 uid="uid://dg1keiig7fpso"]
 
 [ext_resource type="Script" path="res://player/CharacterBody3D.gd" id="1_ek5ps"]
 [ext_resource type="Texture2D" uid="uid://byqrbxoh7xhma" path="res://player/hands with rifle.png" id="2_ben2r"]
 [ext_resource type="Script" path="res://player/Camera3D.gd" id="2_cjxy6"]
 [ext_resource type="Texture2D" uid="uid://cqkpi1ruijgnp" path="res://player/SCOPED IN SNIPER 1.png" id="3_hxm7n"]
 [ext_resource type="Texture2D" uid="uid://dvxx2h0t318p3" path="res://player/riflesprite ads ani.png" id="4_q3b84"]
+[ext_resource type="Texture2D" uid="uid://3qvtnvnij0o7" path="res://player/reload.png" id="4_tqim4"]
 [ext_resource type="AudioStream" uid="uid://cvavh5myeq2uc" path="res://soundefects/9mm-pistol-shoot-short-reverb-7152.mp3" id="6_iu0fu"]
 [ext_resource type="AudioStream" uid="uid://dkp7ss8tk0dv7" path="res://soundefects/double-door-lock-101210.mp3" id="7_px8ul"]
 
@@ -110,6 +111,74 @@ _data = {
 "walk": SubResource("Animation_k0lup")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_00yks"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmnem"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6tii"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd3tk"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrddb"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjb73"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teqw8"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qht4t"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1xmo"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0b8v"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(360, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oorcp"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(400, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43yyv"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j452q"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(480, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq5n6"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(520, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnfx3"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(560, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejt8c"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(600, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4omm"]
+atlas = ExtResource("4_tqim4")
+region = Rect2(640, 0, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x77bv"]
 atlas = ExtResource("4_q3b84")
 region = Rect2(0, 0, 40, 40)
@@ -143,6 +212,62 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00yks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmnem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6tii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd3tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrddb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjb73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teqw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qht4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1xmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0b8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oorcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43yyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j452q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq5n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnfx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejt8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4omm")
+}],
+"loop": false,
+"name": &"reload",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -219,7 +344,8 @@ texture_filter = 1
 position = Vector2(341.5, 155)
 scale = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_vyu7t")
-animation = &"idle"
+animation = &"reload"
+autoplay = "idle"
 
 [node name="scope" type="Control" parent="CanvasLayer"]
 visible = false

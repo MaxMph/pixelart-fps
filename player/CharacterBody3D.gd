@@ -32,6 +32,7 @@ var gravity = 14
 
 
 func _ready():
+	floor_max_angle = (deg_to_rad(65))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
